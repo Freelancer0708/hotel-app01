@@ -3,6 +3,7 @@ import { AuthProvider } from '../contexts/AuthContext';
 import Header from '../components/Header';
 import '../styles/global.css';
 import Head from 'next/head';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

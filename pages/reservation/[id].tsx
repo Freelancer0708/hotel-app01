@@ -12,6 +12,13 @@ type Reservation = {
   checkInDate: Timestamp;
   checkOutDate: Timestamp;
   status: string;
+  planName: string;
+  hotelName: string;
+  reservationDate: Timestamp;
+  checkInTime: string;
+  checkOutTime: string;
+  price: number;
+  email: string;
 };
 
 const ReservationPage = () => {
@@ -39,9 +46,12 @@ const ReservationPage = () => {
   return (
     <div>
       <h1>Reservation Complete</h1>
-      <p>Reservation ID: {reservation.id}</p>
-      <p>Check-in Date: {reservation.checkInDate.toDate().toLocaleDateString()}</p>
-      <p>Check-out Date: {reservation.checkOutDate.toDate().toLocaleDateString()}</p>
+      <p>Plan Name: {reservation.planName}</p>
+      <p>Hotel Name: {reservation.hotelName}</p>
+      <p>Reservation Date: {reservation.reservationDate.toDate().toLocaleString()}</p>
+      <p>Check-in Date: {reservation.checkInDate.toDate().toLocaleDateString()} at {reservation.checkInTime}</p>
+      <p>Check-out Date: {reservation.checkOutDate.toDate().toLocaleDateString()} at {reservation.checkOutTime}</p>
+      <p>Price: ¥{reservation.price}</p>
       <p>Status: {reservation.status}</p>
     </div>
   );

@@ -1,7 +1,7 @@
 import { initializeApp, cert, ServiceAccount } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 
-// サービスアカウントキーを読み込む
+// サービスアカウントキーをrequireで読み込む
 const serviceAccount = require('./serviceAccountKey.json') as ServiceAccount;
 
 // Firebase初期化
@@ -15,6 +15,9 @@ type Plan = {
   name: string;
   price: number;
   description: string;
+  duration: number;
+  checkInTime: string;
+  checkOutTime: string;
   availability: { [date: string]: number };
 };
 
@@ -31,9 +34,9 @@ const hotelsData: Hotel[] = [
     location: '東京都',
     description: '東京の中心にあるホテルです。',
     plans: [
-      { name: '2000円プラン', price: 2000, description: '基本プラン', availability: { '2024-07-01': 10, '2024-07-02': 8 } },
-      { name: '4000円プラン', price: 4000, description: '標準プラン', availability: { '2024-07-01': 5, '2024-07-02': 3 } },
-      { name: '10000円プラン', price: 10000, description: '豪華プラン', availability: { '2024-07-01': 2, '2024-07-02': 1 } }
+      { name: '2000円プラン', price: 2000, description: '基本プラン', duration: 2, checkInTime: '16:00', checkOutTime: '10:00', availability: { '2025_01_01': 10, '2025_01_02': 8 } },
+      { name: '4000円プラン', price: 4000, description: '標準プラン', duration: 3, checkInTime: '16:00', checkOutTime: '10:00', availability: { '2025_01_01': 5, '2025_01_02': 3 } },
+      { name: '10000円プラン', price: 10000, description: '豪華プラン', duration: 7, checkInTime: '16:00', checkOutTime: '10:00', availability: { '2025_01_01': 2, '2025_01_02': 1 } }
     ]
   },
   // 他のホテルのデータも同様に追加
@@ -63,14 +66,20 @@ const setupFirestore = async () => {
       await planRef.set({
         name: plan.name,
         price: plan.price,
-        description: plan.description
+        description: plan.description,
+        duration: plan.duration,
+        checkInTime: plan.checkInTime,
+        checkOutTime: plan.checkOutTime
       });
 
       console.log('Added plan:', {
         id: planRef.id,
         name: plan.name,
         price: plan.price,
-        description: plan.description
+        description: plan.description,
+        duration: plan.duration,
+        checkInTime: plan.checkInTime,
+        checkOutTime: plan.checkOutTime
       });
 
       for (const [date, rooms] of Object.entries(plan.availability)) {
