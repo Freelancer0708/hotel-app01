@@ -4,6 +4,7 @@
 <p>npm install firebase</p>
 <p>npm install react-datepicker</p>
 <p>npm install date-fns</p>
+<p>npm install nodemailer</p>
 
 <h3>scriptsディレクトリでインストールする物</h3>
 <p>npm install</p>
