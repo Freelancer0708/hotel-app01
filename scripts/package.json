@@ -1,0 +1,16 @@
+{
+    "name": "firestore-setup",
+    "version": "1.0.0",
+    "main": "setupFirestore.js",
+    "dependencies": {
+        "@types/node": "^20.14.10",
+        "firebase": "^9.23.0",
+        "firebase-admin": "^12.2.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.3"
+    },
+    "scripts": {
+        "start": "node setupFirestore.js",
+        "setupFirestore": "ts-node setupFirestore.ts"
+    }
+}
