@@ -1,0 +1,66 @@
+/* styles/Calendar.module.css */
+.calendar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .daysNames, .daysGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .daysNames div, .day {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  
+  .day:last-child {
+    border-right: none;
+  }
+  
+  .day {
+    cursor: pointer;
+  }
+  
+  .day:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .today {
+    background-color: #e3f2fd;
+  }
+  
+  .selected {
+    background-color: #bbdefb;
+  }
+  
+  .available {
+    background-color: #e8f5e9;
+  }
+  
+  .unavailable {
+    background-color: #ffebee;
+  }
+  
+  .rooms {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+  }
+  
